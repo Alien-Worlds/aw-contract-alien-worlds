@@ -1,3 +1,8 @@
+/**
+ * Auto generated. DO NOT edit manually.
+ * Last updated on: Thu, 29 Jun 2023 08:14:24 GMT
+ */
+
 import { 
   AccountsRawModel,
   StatRawModel,
@@ -39,9 +44,9 @@ export class AlienWorldsContractServiceImpl
    * @type {EosSmartContractServiceImpl}
    * @param {GetTableRowsOptions} options 
    */
-  public readonly fetchAccounts = async (
+  public async fetchAccounts (
     options?: GetTableRowsOptions
-  ): Promise<Result<AccountsRawModel[], Error>> => {
+  ): Promise<Result<AccountsRawModel[], Error>> {
     return await this.getAll<AccountsRawModel>('candidate_name', {
       ...options,
       code: 'alien.worlds',
@@ -56,9 +61,9 @@ export class AlienWorldsContractServiceImpl
    * @type {EosSmartContractServiceImpl}
    * @param {GetTableRowsOptions} options 
    */
-  public readonly fetchStat = async (
+  public async fetchStat (
     options?: GetTableRowsOptions
-  ): Promise<Result<StatRawModel[], Error>> => {
+  ): Promise<Result<StatRawModel[], Error>> {
     return await this.getAll<StatRawModel>('candidate_name', {
       ...options,
       code: 'alien.worlds',
@@ -73,9 +78,9 @@ export class AlienWorldsContractServiceImpl
    * @type {EosSmartContractServiceImpl}
    * @param {GetTableRowsOptions} options 
    */
-  public readonly fetchVestings = async (
+  public async fetchVestings (
     options?: GetTableRowsOptions
-  ): Promise<Result<VestingsRawModel[], Error>> => {
+  ): Promise<Result<VestingsRawModel[], Error>> {
     return await this.getAll<VestingsRawModel>('candidate_name', {
       ...options,
       code: 'alien.worlds',
