@@ -1,6 +1,6 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Thu, 29 Jun 2023 08:14:24 GMT
+ * Last updated on: Thu, 29 Jun 2023 08:50:23 GMT
  */
 
 import { 
@@ -53,7 +53,7 @@ export class AlienWorldsContractServiceImpl
       table: 'accounts',
       table_key: 'balance',
     });
-  };
+  }
 
   /**
    * A EosSmartContractServiceImpl for the stat table.
@@ -70,7 +70,7 @@ export class AlienWorldsContractServiceImpl
       table: 'stat',
       table_key: 'supply',
     });
-  };
+  }
 
   /**
    * A EosSmartContractServiceImpl for the vestings table.
@@ -87,6 +87,6 @@ export class AlienWorldsContractServiceImpl
       table: 'vestings',
       table_key: 'account',
     });
-  };
+  }
 
 }
