@@ -1,6 +1,6 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Thu, 29 Jun 2023 08:50:23 GMT
+ * Last updated on: Tue, 04 Jul 2023 13:56:14 GMT
  */
 
 import { 
@@ -47,7 +47,7 @@ export class AlienWorldsContractServiceImpl
   public async fetchAccounts (
     options?: GetTableRowsOptions
   ): Promise<Result<AccountsRawModel[], Error>> {
-    return await this.getAll<AccountsRawModel>('candidate_name', {
+    return await this.getAll<AccountsRawModel>('balance', {
       ...options,
       code: 'alien.worlds',
       table: 'accounts',
@@ -64,7 +64,7 @@ export class AlienWorldsContractServiceImpl
   public async fetchStat (
     options?: GetTableRowsOptions
   ): Promise<Result<StatRawModel[], Error>> {
-    return await this.getAll<StatRawModel>('candidate_name', {
+    return await this.getAll<StatRawModel>('supply', {
       ...options,
       code: 'alien.worlds',
       table: 'stat',
@@ -81,7 +81,7 @@ export class AlienWorldsContractServiceImpl
   public async fetchVestings (
     options?: GetTableRowsOptions
   ): Promise<Result<VestingsRawModel[], Error>> {
-    return await this.getAll<VestingsRawModel>('candidate_name', {
+    return await this.getAll<VestingsRawModel>('account', {
       ...options,
       code: 'alien.worlds',
       table: 'vestings',
