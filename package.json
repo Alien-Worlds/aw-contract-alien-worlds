@@ -18,7 +18,7 @@
   "dependencies": {
     "@alien-worlds/api-core": "^0.0.151",
     "@alien-worlds/eos": "^0.0.16",
-    "@alien-worlds/eosio-contract-types": "^1.0.11",
+    "@alien-worlds/eosio-contract-types": "^1.0.14",
     "@alien-worlds/storage-mongodb": "^0.0.22"
   },
   "devDependencies": {
