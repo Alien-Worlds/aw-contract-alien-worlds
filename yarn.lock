@@ -2,39 +2,38 @@
 # yarn lockfile v1
 
 
-"@alien-worlds/api-core@^0.0.151":
-  version "0.0.151"
-  resolved "https://npm.pkg.github.com/download/@alien-worlds/api-core/0.0.151/90f3fda4958c18a705ee34300f47a46f8a3e4f63#90f3fda4958c18a705ee34300f47a46f8a3e4f63"
-  integrity sha512-EkQjZ34F3srCD97b0TE+Lju05pod5gxPlUnezMV9Bq0R1xp0XLGnbSIqpO6Y2UfIJY7PHpFaHWpce+q2rQs4aA==
+"@alien-worlds/api-core@^0.0.155":
+  version "0.0.155"
+  resolved "https://npm.pkg.github.com/download/@alien-worlds/api-core/0.0.155/33c08092422d3b41d3a6b215c06931d7eabd85bd#33c08092422d3b41d3a6b215c06931d7eabd85bd"
+  integrity sha512-pF0L5KDXzcaaYGNheIrgLg+y+GzINOOHxvxA9jGLyt7MrBr/adV0P016B9EK+BN9W2JVo+BCwsjAleji64mDPQ==
   dependencies:
     inversify "^6.0.1"
-    nanoid "^3.0.0"
-    node-fetch "2"
+    node-fetch "2.6.6"
     reflect-metadata "^0.1.13"
 
-"@alien-worlds/eos@^0.0.16":
-  version "0.0.16"
-  resolved "https://npm.pkg.github.com/download/@alien-worlds/eos/0.0.16/2857c94491496a938086fc307116bfbff45a9902#2857c94491496a938086fc307116bfbff45a9902"
-  integrity sha512-Zkgeo4rNidiQiBLVx54XdYajDn6kjQ2RO72Nw20aQ5lPkCdpX4YPILSIzmRD2qGRijSsvTjfL8369tfs7wHKmA==
+"@alien-worlds/eos@^0.0.17":
+  version "0.0.17"
+  resolved "https://npm.pkg.github.com/download/@alien-worlds/eos/0.0.17/3239448ffefa2911efe25063d5a66f1e0f8273a8#3239448ffefa2911efe25063d5a66f1e0f8273a8"
+  integrity sha512-7zfEARthKjnWc5vBVtsJeJlXEjbe5OVS6C4gnOHFbpombu0GSkpz/sFbBDHJek3EG+m+mSKhbro1rb4NC5rngQ==
   dependencies:
-    "@alien-worlds/api-core" "^0.0.151"
+    "@alien-worlds/api-core" "^0.0.155"
     eosjs "^22.1.0"
 
-"@alien-worlds/eosio-contract-types@^1.0.15":
-  version "1.0.15"
-  resolved "https://npm.pkg.github.com/download/@alien-worlds/eosio-contract-types/1.0.15/ab174e69a5c60b54be7a841bfdba14281b685f58#ab174e69a5c60b54be7a841bfdba14281b685f58"
-  integrity sha512-Du/nWG0cy/aEHbocGBFb8GaKRH/Ia0UVavtcx6f+4BcS3ZvAF1aJTA4i6wvDgNkuhtGfnFb74VnXXjQMj3dxYg==
+"@alien-worlds/eosio-contract-types@^1.0.16":
+  version "1.0.16"
+  resolved "https://npm.pkg.github.com/download/@alien-worlds/eosio-contract-types/1.0.16/745a2bff7a39eae2aca9dea6b50161c6ba04ecfc#745a2bff7a39eae2aca9dea6b50161c6ba04ecfc"
+  integrity sha512-mpwbifFWSw7wP/ER0/9IhzYoGlfjb4NUVd6oIYItYzhv/d2EHkDOHDnq9tQvkgLQPk8zs/kNDXyXCI1nk3n58A==
   dependencies:
-    "@alien-worlds/api-core" "^0.0.151"
-    "@alien-worlds/storage-mongodb" "^0.0.22"
+    "@alien-worlds/api-core" "^0.0.155"
+    "@alien-worlds/storage-mongodb" "^0.0.24"
     typescript "^4.9.5"
 
-"@alien-worlds/storage-mongodb@^0.0.22":
-  version "0.0.22"
-  resolved "https://npm.pkg.github.com/download/@alien-worlds/storage-mongodb/0.0.22/d9bc5540f82a16abbfa64ebec22a1732f60b3f35#d9bc5540f82a16abbfa64ebec22a1732f60b3f35"
-  integrity sha512-5bwxRLohvizPuLJXgppzGF7dfDmEQtLHFJCGM+l6CHQ4OOnd4kleO/15379wpI1QVxiYd0ZjGwbBw+JdSeKhQQ==
+"@alien-worlds/storage-mongodb@^0.0.24":
+  version "0.0.24"
+  resolved "https://npm.pkg.github.com/download/@alien-worlds/storage-mongodb/0.0.24/a995fd2bbe9d36c7c12042b2af273e2242a96dd5#a995fd2bbe9d36c7c12042b2af273e2242a96dd5"
+  integrity sha512-i4M04mdQCHyuPLu4QAAEhPxz6c6lcFKSCszSLswojJdq6vzQsRkP1MGEqJP3hRl97IcWdEsGswvvkn02UDdYEw==
   dependencies:
-    "@alien-worlds/api-core" "^0.0.151"
+    "@alien-worlds/api-core" "^0.0.155"
     mongodb "4.9.1"
 
 "@ampproject/remapping@^2.2.0":
@@ -2640,11 +2639,6 @@ ms@2.1.2:
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.1.2.tgz#d09d1f357b443f493382a8eb3ccd183872ae6009"
   integrity sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w==
 
-nanoid@^3.0.0:
-  version "3.3.6"
-  resolved "https://registry.yarnpkg.com/nanoid/-/nanoid-3.3.6.tgz#443380c856d6e9f9824267d960b4236ad583ea4c"
-  integrity sha512-BGcqMMJuToF7i1rt+2PWSNVnWIkGCU78jBG3RxO/bZlnZPK2Cmi2QaffxGO/2RvWi9sL+FAiRiXMgsyxQ1DIDA==
-
 natural-compare-lite@^1.4.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/natural-compare-lite/-/natural-compare-lite-1.4.0.tgz#17b09581988979fddafe0201e931ba933c96cbb4"
@@ -2655,10 +2649,10 @@ natural-compare@^1.4.0:
   resolved "https://registry.yarnpkg.com/natural-compare/-/natural-compare-1.4.0.tgz#4abebfeed7541f2c27acfb29bdbbd15c8d5ba4f7"
   integrity sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==
 
-node-fetch@2:
-  version "2.6.11"
-  resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.6.11.tgz#cde7fc71deef3131ef80a738919f999e6edfff25"
-  integrity sha512-4I6pdBY1EthSqDmJkiNk3JIT8cswwR9nfeW/cPdUagJYEQG7R95WRH74wpz7ma8Gh/9dI9FP+OU+0E4FvtA55w==
+node-fetch@2.6.6:
+  version "2.6.6"
+  resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.6.6.tgz#1751a7c01834e8e1697758732e9efb6eeadfaf89"
+  integrity sha512-Z8/6vRlTUChSdIgMa51jxQ4lrw/Jy5SOW10ObaA47/RElsAN2c5Pn8bTgFGWn/ibwzXTE8qwr1Yzx28vsecXEA==
   dependencies:
     whatwg-url "^5.0.0"
 
