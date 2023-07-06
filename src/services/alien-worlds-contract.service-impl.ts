@@ -1,19 +1,12 @@
 import { GetTableRowsOptions, Result } from '@alien-worlds/api-core';
-import {
-  EosRpcSourceImpl,
-  EosSmartContractServiceImpl,
-} from '@alien-worlds/eos';
+import { EosRpcSourceImpl, EosSmartContractServiceImpl } from '@alien-worlds/eos';
 
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Tue, 04 Jul 2023 13:56:14 GMT
+ * Last updated on: Thu, 06 Jul 2023 12:17:06 GMT
  */
 
-import {
-  AccountsRawModel,
-  StatRawModel,
-  VestingsRawModel,
-} from '../deltas/data/dtos';
+import { AccountsRawModel, StatRawModel, VestingsRawModel } from '../deltas/data/dtos';
 import { AlienWorldsContractService } from './alien-worlds-contract.service';
 
 /**
@@ -47,14 +40,18 @@ export class AlienWorldsContractServiceImpl
   public async fetchAccounts(
     options?: GetTableRowsOptions
   ): Promise<Result<AccountsRawModel[], Error>> {
-    return await this.getAll<AccountsRawModel>('', {
+    const table_key = '';
+    const tableRowOptions = {
       ...options,
       code: 'alien.worlds',
       table: 'accounts',
-      table_key: '',
-    });
-  }
+      table_key,
+    };
 
+    return options?.limit > 0
+      ? await this.getMany<AccountsRawModel>(tableRowOptions)
+      : await this.getAll<AccountsRawModel>(table_key, tableRowOptions);
+  }
   /**
    * A EosSmartContractServiceImpl for the stat table.
    *
@@ -64,14 +61,18 @@ export class AlienWorldsContractServiceImpl
   public async fetchStat(
     options?: GetTableRowsOptions
   ): Promise<Result<StatRawModel[], Error>> {
-    return await this.getAll<StatRawModel>('supply', {
+    const table_key = 'supply';
+    const tableRowOptions = {
       ...options,
       code: 'alien.worlds',
       table: 'stat',
-      table_key: 'supply',
-    });
-  }
+      table_key,
+    };
 
+    return options?.limit > 0
+      ? await this.getMany<StatRawModel>(tableRowOptions)
+      : await this.getAll<StatRawModel>(table_key, tableRowOptions);
+  }
   /**
    * A EosSmartContractServiceImpl for the vestings table.
    *
@@ -81,11 +82,16 @@ export class AlienWorldsContractServiceImpl
   public async fetchVestings(
     options?: GetTableRowsOptions
   ): Promise<Result<VestingsRawModel[], Error>> {
-    return await this.getAll<VestingsRawModel>('account', {
+    const table_key = 'account';
+    const tableRowOptions = {
       ...options,
       code: 'alien.worlds',
       table: 'vestings',
-      table_key: 'account',
-    });
+      table_key,
+    };
+
+    return options?.limit > 0
+      ? await this.getMany<VestingsRawModel>(tableRowOptions)
+      : await this.getAll<VestingsRawModel>(table_key, tableRowOptions);
   }
 }
