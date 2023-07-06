@@ -3,7 +3,7 @@ import { EosRpcSourceImpl, EosSmartContractServiceImpl } from '@alien-worlds/eos
 
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Thu, 06 Jul 2023 12:17:06 GMT
+ * Last updated on: Thu, 06 Jul 2023 15:49:23 GMT
  */
 
 import { AccountsRawModel, StatRawModel, VestingsRawModel } from '../deltas/data/dtos';

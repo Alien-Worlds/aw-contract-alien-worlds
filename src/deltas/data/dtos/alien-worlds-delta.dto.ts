@@ -1,18 +1,23 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Thu, 06 Jul 2023 12:17:06 GMT
+ * Last updated on: Thu, 06 Jul 2023 15:49:23 GMT
  */
 
 import { MongoDB } from '@alien-worlds/storage-mongodb';
 
-import { AccountsMongoModel } from './accounts.dto';
-import { StatMongoModel } from './stat.dto';
-import { VestingsMongoModel } from './vestings.dto';
+import { AccountsMongoModel, AccountsRawModel } from './accounts.dto';
+import { StatMongoModel, StatRawModel } from './stat.dto';
+import { VestingsMongoModel, VestingsRawModel } from './vestings.dto';
 
 export type DataDocumentType =
   | AccountsMongoModel
   | StatMongoModel
   | VestingsMongoModel;
+
+export type DataRawType =
+  | AccountsRawModel
+  | StatRawModel
+  | VestingsRawModel;
 
 
 export type AlienWorldsDeltaMongoModel = {
@@ -27,4 +32,16 @@ export type AlienWorldsDeltaMongoModel = {
   primary_key?: MongoDB.Long,
   present?: boolean;
   block_timestamp?: Date;
+};
+
+export type AlienWorldsDeltaRawModel = {
+  block_timestamp: Date;
+  block_number: string;
+  code: string;
+  scope: string;
+  table: string;
+  payer: string;
+  primary_key: string;
+  present: boolean;
+  data: DataRawType;
 };

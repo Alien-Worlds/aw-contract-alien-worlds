@@ -1,17 +1,17 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Thu, 06 Jul 2023 12:17:06 GMT
+ * Last updated on: Thu, 06 Jul 2023 15:49:23 GMT
  */
 
 import { MongoDB } from '@alien-worlds/storage-mongodb';
 
-import { AddvestingMongoModel } from './addvesting.dto';
-import { BurnMongoModel } from './burn.dto';
-import { CloseMongoModel } from './close.dto';
-import { CreateMongoModel } from './create.dto';
-import { IssueMongoModel } from './issue.dto';
-import { OpenMongoModel } from './open.dto';
-import { TransferMongoModel } from './transfer.dto';
+import { AddvestingMongoModel, AddvestingRawModel } from './addvesting.dto';
+import { BurnMongoModel, BurnRawModel } from './burn.dto';
+import { CloseMongoModel, CloseRawModel } from './close.dto';
+import { CreateMongoModel, CreateRawModel } from './create.dto';
+import { IssueMongoModel, IssueRawModel } from './issue.dto';
+import { OpenMongoModel, OpenRawModel } from './open.dto';
+import { TransferMongoModel, TransferRawModel } from './transfer.dto';
 
 export type DataDocumentType =
   | AddvestingMongoModel
@@ -21,6 +21,15 @@ export type DataDocumentType =
   | IssueMongoModel
   | OpenMongoModel
   | TransferMongoModel;
+
+export type DataRawType =
+  | AddvestingRawModel
+  | BurnRawModel
+  | CloseRawModel
+  | CreateRawModel
+  | IssueRawModel
+  | OpenRawModel
+  | TransferRawModel;
 
 export type AlienWorldsActionMongoModel = {
   _id?: MongoDB.ObjectId;
@@ -35,5 +44,17 @@ export type AlienWorldsActionMongoModel = {
     name: string;
     data: DataDocumentType;
   };
+};
+
+export type AlienWorldsActionRawModel = {
+  account: string;
+  name: string;
+  block_timestamp: Date;
+  block_number: string;
+  global_sequence: string;
+  recv_sequence: string;
+  transaction_id: string;
+  data: DataRawType;
+  [key: string]: unknown;
 };
 
