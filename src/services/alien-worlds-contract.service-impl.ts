@@ -1,12 +1,19 @@
 import { GetTableRowsOptions, Result } from '@alien-worlds/api-core';
-import { EosRpcSourceImpl, EosSmartContractServiceImpl } from '@alien-worlds/eos';
+import {
+  EosRpcSourceImpl,
+  EosSmartContractServiceImpl,
+} from '@alien-worlds/eos';
 
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Thu, 06 Jul 2023 15:49:23 GMT
+ * Last updated on: Mon, 10 Jul 2023 11:06:28 GMT
  */
 
-import { AccountsRawModel, StatRawModel, VestingsRawModel } from '../deltas/data/dtos';
+import {
+  AccountsRawModel,
+  StatRawModel,
+  VestingsRawModel,
+} from '../deltas/data/dtos';
 import { AlienWorldsContractService } from './alien-worlds-contract.service';
 
 /**
