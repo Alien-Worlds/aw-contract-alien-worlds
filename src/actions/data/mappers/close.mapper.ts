@@ -1,34 +1,29 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Mon, 10 Jul 2023 11:06:28 GMT
+ * Last updated on: Mon, 17 Jul 2023 08:04:38 GMT
  */
 
-import {
-  MapperImpl,
-  parseToBigInt,
-} from '@alien-worlds/api-core';
-import { MongoDB } from '@alien-worlds/storage-mongodb';
+import { MapperImpl } from '@alien-worlds/api-core';
+import { MongoDB, MongoMapper } from '@alien-worlds/storage-mongodb';
 import { Symbol, SymbolMongoMapper, SymbolRawMapper } from '@alien-worlds/eosio-contract-types';
 import { Close  } from "../../domain/entities";
 import { CloseMongoModel, CloseRawModel  } from "../dtos/close.dto";
 
 // Mongo Mappers
 export class CloseMongoMapper
-  extends MapperImpl<Close, CloseMongoModel>
+  extends MongoMapper<Close, CloseMongoModel>
 {
   constructor() {
     super();
 
     this.mappingFromEntity.set('owner', { 
       key: 'owner', 
-      mapper: (value: string) => 
-        value,
+      mapper: (value: string) => value,
     });
 
     this.mappingFromEntity.set('symbol', { 
       key: 'symbol', 
-      mapper: (value: Symbol) => 
-           new SymbolMongoMapper().fromEntity(value)
+      mapper: (value: Symbol) => new SymbolMongoMapper().fromEntity(value),
     });
 
   }
@@ -37,15 +32,13 @@ export class CloseMongoMapper
     const { 
       owner,
       symbol,
-      _id, 
+      _id,
       ...rest
     } = mongoModel;
 
     return Close.create(
-        owner ?? '',
-        symbol 
-          ? new SymbolMongoMapper().toEntity(symbol)
-          : Symbol.getDefault(),
+      owner || '',
+      symbol ? new SymbolMongoMapper().toEntity(symbol) : Symbol.getDefault(),
       _id instanceof MongoDB.ObjectId ? _id.toString() : undefined,
       rest
     );
@@ -69,10 +62,8 @@ export class CloseRawMapper
     } = rawModel;
 
     return Close.create(
-        owner ?? '',
-        symbol 
-          ? new SymbolRawMapper().toEntity(symbol)
-          : Symbol.getDefault(),
+      owner || '',
+      symbol ? new SymbolRawMapper().toEntity(symbol) : Symbol.getDefault(),
       undefined,
       rest
     );

@@ -1,40 +1,34 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Mon, 10 Jul 2023 11:06:28 GMT
+ * Last updated on: Mon, 17 Jul 2023 08:04:38 GMT
  */
 
-import {
-  MapperImpl,
-  parseToBigInt,
-} from '@alien-worlds/api-core';
-import { MongoDB } from '@alien-worlds/storage-mongodb';
+import { MapperImpl } from '@alien-worlds/api-core';
+import { MongoDB, MongoMapper } from '@alien-worlds/storage-mongodb';
 import { Symbol, SymbolMongoMapper, SymbolRawMapper } from '@alien-worlds/eosio-contract-types';
 import { Open  } from "../../domain/entities";
 import { OpenMongoModel, OpenRawModel  } from "../dtos/open.dto";
 
 // Mongo Mappers
 export class OpenMongoMapper
-  extends MapperImpl<Open, OpenMongoModel>
+  extends MongoMapper<Open, OpenMongoModel>
 {
   constructor() {
     super();
 
     this.mappingFromEntity.set('owner', { 
       key: 'owner', 
-      mapper: (value: string) => 
-        value,
+      mapper: (value: string) => value,
     });
 
     this.mappingFromEntity.set('symbol', { 
       key: 'symbol', 
-      mapper: (value: Symbol) => 
-           new SymbolMongoMapper().fromEntity(value)
+      mapper: (value: Symbol) => new SymbolMongoMapper().fromEntity(value),
     });
 
     this.mappingFromEntity.set('ramPayer', { 
       key: 'ram_payer', 
-      mapper: (value: string) => 
-        value,
+      mapper: (value: string) => value,
     });
 
   }
@@ -44,16 +38,14 @@ export class OpenMongoMapper
       owner,
       symbol,
       ram_payer,
-      _id, 
+      _id,
       ...rest
     } = mongoModel;
 
     return Open.create(
-        owner ?? '',
-        symbol 
-          ? new SymbolMongoMapper().toEntity(symbol)
-          : Symbol.getDefault(),
-        ram_payer ?? '',
+      owner || '',
+      symbol ? new SymbolMongoMapper().toEntity(symbol) : Symbol.getDefault(),
+      ram_payer || '',
       _id instanceof MongoDB.ObjectId ? _id.toString() : undefined,
       rest
     );
@@ -78,11 +70,9 @@ export class OpenRawMapper
     } = rawModel;
 
     return Open.create(
-        owner ?? '',
-        symbol 
-          ? new SymbolRawMapper().toEntity(symbol)
-          : Symbol.getDefault(),
-        ram_payer ?? '',
+      owner || '',
+      symbol ? new SymbolRawMapper().toEntity(symbol) : Symbol.getDefault(),
+      ram_payer || '',
       undefined,
       rest
     );

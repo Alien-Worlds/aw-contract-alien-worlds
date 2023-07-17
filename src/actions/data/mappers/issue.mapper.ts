@@ -1,40 +1,34 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Mon, 10 Jul 2023 11:06:28 GMT
+ * Last updated on: Mon, 17 Jul 2023 08:04:38 GMT
  */
 
-import {
-  MapperImpl,
-  parseToBigInt,
-} from '@alien-worlds/api-core';
-import { MongoDB } from '@alien-worlds/storage-mongodb';
+import { MapperImpl } from '@alien-worlds/api-core';
+import { MongoDB, MongoMapper } from '@alien-worlds/storage-mongodb';
 import { Asset, AssetMongoMapper, AssetRawMapper } from '@alien-worlds/eosio-contract-types';
 import { Issue  } from "../../domain/entities";
 import { IssueMongoModel, IssueRawModel  } from "../dtos/issue.dto";
 
 // Mongo Mappers
 export class IssueMongoMapper
-  extends MapperImpl<Issue, IssueMongoModel>
+  extends MongoMapper<Issue, IssueMongoModel>
 {
   constructor() {
     super();
 
     this.mappingFromEntity.set('to', { 
       key: 'to', 
-      mapper: (value: string) => 
-        value,
+      mapper: (value: string) => value,
     });
 
     this.mappingFromEntity.set('quantity', { 
       key: 'quantity', 
-      mapper: (value: Asset) => 
-           new AssetMongoMapper().fromEntity(value)
+      mapper: (value: Asset) => new AssetMongoMapper().fromEntity(value),
     });
 
     this.mappingFromEntity.set('memo', { 
       key: 'memo', 
-      mapper: (value: string) => 
-        value,
+      mapper: (value: string) => value,
     });
 
   }
@@ -44,16 +38,14 @@ export class IssueMongoMapper
       to,
       quantity,
       memo,
-      _id, 
+      _id,
       ...rest
     } = mongoModel;
 
     return Issue.create(
-        to ?? '',
-        quantity 
-          ? new AssetMongoMapper().toEntity(quantity)
-          : Asset.getDefault(),
-        memo ?? '',
+      to || '',
+      quantity ? new AssetMongoMapper().toEntity(quantity) : Asset.getDefault(),
+      memo || '',
       _id instanceof MongoDB.ObjectId ? _id.toString() : undefined,
       rest
     );
@@ -78,11 +70,9 @@ export class IssueRawMapper
     } = rawModel;
 
     return Issue.create(
-        to ?? '',
-        quantity 
-          ? new AssetRawMapper().toEntity(quantity)
-          : Asset.getDefault(),
-        memo ?? '',
+      to || '',
+      quantity ? new AssetRawMapper().toEntity(quantity) : Asset.getDefault(),
+      memo || '',
       undefined,
       rest
     );

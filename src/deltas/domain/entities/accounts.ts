@@ -1,6 +1,6 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Mon, 10 Jul 2023 11:06:28 GMT
+ * Last updated on: Mon, 17 Jul 2023 08:04:38 GMT
  */
 
 import { Entity, UnknownObject } from "@alien-worlds/api-core";
@@ -45,6 +45,7 @@ export class Accounts implements Entity {
    *
    * @static
    * @public
+   * @param Asset balance
    * @returns `Accounts` An instance of the `Accounts` class.
    */
   public static create(
@@ -54,7 +55,7 @@ export class Accounts implements Entity {
   ): Accounts {
     const entity = new Accounts(
       balance,
-      id
+      id,
     );
     entity.rest = rest;
 

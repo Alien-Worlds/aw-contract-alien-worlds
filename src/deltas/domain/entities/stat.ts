@@ -1,6 +1,6 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Mon, 10 Jul 2023 11:06:28 GMT
+ * Last updated on: Mon, 17 Jul 2023 08:04:38 GMT
  */
 
 import { Entity, UnknownObject } from "@alien-worlds/api-core";
@@ -51,6 +51,9 @@ export class Stat implements Entity {
    *
    * @static
    * @public
+   * @param Asset supply
+   * @param Asset maxSupply
+   * @param string issuer
    * @returns `Stat` An instance of the `Stat` class.
    */
   public static create(
@@ -64,7 +67,7 @@ export class Stat implements Entity {
       supply,
       maxSupply,
       issuer,
-      id
+      id,
     );
     entity.rest = rest;
 

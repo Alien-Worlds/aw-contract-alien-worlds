@@ -1,34 +1,29 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Mon, 10 Jul 2023 11:06:28 GMT
+ * Last updated on: Mon, 17 Jul 2023 08:04:38 GMT
  */
 
-import {
-  MapperImpl,
-  parseToBigInt,
-} from '@alien-worlds/api-core';
-import { MongoDB } from '@alien-worlds/storage-mongodb';
+import { MapperImpl } from '@alien-worlds/api-core';
+import { MongoDB, MongoMapper } from '@alien-worlds/storage-mongodb';
 import { Asset, AssetMongoMapper, AssetRawMapper } from '@alien-worlds/eosio-contract-types';
 import { Create  } from "../../domain/entities";
 import { CreateMongoModel, CreateRawModel  } from "../dtos/create.dto";
 
 // Mongo Mappers
 export class CreateMongoMapper
-  extends MapperImpl<Create, CreateMongoModel>
+  extends MongoMapper<Create, CreateMongoModel>
 {
   constructor() {
     super();
 
     this.mappingFromEntity.set('issuer', { 
       key: 'issuer', 
-      mapper: (value: string) => 
-        value,
+      mapper: (value: string) => value,
     });
 
     this.mappingFromEntity.set('maximumSupply', { 
       key: 'maximum_supply', 
-      mapper: (value: Asset) => 
-           new AssetMongoMapper().fromEntity(value)
+      mapper: (value: Asset) => new AssetMongoMapper().fromEntity(value),
     });
 
   }
@@ -37,15 +32,13 @@ export class CreateMongoMapper
     const { 
       issuer,
       maximum_supply,
-      _id, 
+      _id,
       ...rest
     } = mongoModel;
 
     return Create.create(
-        issuer ?? '',
-        maximum_supply 
-          ? new AssetMongoMapper().toEntity(maximum_supply)
-          : Asset.getDefault(),
+      issuer || '',
+      maximum_supply ? new AssetMongoMapper().toEntity(maximum_supply) : Asset.getDefault(),
       _id instanceof MongoDB.ObjectId ? _id.toString() : undefined,
       rest
     );
@@ -69,10 +62,8 @@ export class CreateRawMapper
     } = rawModel;
 
     return Create.create(
-        issuer ?? '',
-        maximum_supply 
-          ? new AssetRawMapper().toEntity(maximum_supply)
-          : Asset.getDefault(),
+      issuer || '',
+      maximum_supply ? new AssetRawMapper().toEntity(maximum_supply) : Asset.getDefault(),
       undefined,
       rest
     );

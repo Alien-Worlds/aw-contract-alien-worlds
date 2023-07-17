@@ -1,6 +1,6 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Mon, 10 Jul 2023 11:06:28 GMT
+ * Last updated on: Mon, 17 Jul 2023 08:04:38 GMT
  */
 
 import { Entity, UnknownObject } from "@alien-worlds/api-core";
@@ -51,6 +51,9 @@ export class Open implements Entity {
    *
    * @static
    * @public
+   * @param string owner
+   * @param Symbol symbol
+   * @param string ramPayer
    * @returns `Open` An instance of the `Open` class.
    */
   public static create(
@@ -64,7 +67,7 @@ export class Open implements Entity {
       owner,
       symbol,
       ramPayer,
-      id
+      id,
     );
     entity.rest = rest;
 

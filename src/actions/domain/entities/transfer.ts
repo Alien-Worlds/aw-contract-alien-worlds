@@ -1,6 +1,6 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Mon, 10 Jul 2023 11:06:28 GMT
+ * Last updated on: Mon, 17 Jul 2023 08:04:38 GMT
  */
 
 import { Entity, UnknownObject } from "@alien-worlds/api-core";
@@ -54,6 +54,10 @@ export class Transfer implements Entity {
    *
    * @static
    * @public
+   * @param string from
+   * @param string to
+   * @param Asset quantity
+   * @param string memo
    * @returns `Transfer` An instance of the `Transfer` class.
    */
   public static create(
@@ -69,7 +73,7 @@ export class Transfer implements Entity {
       to,
       quantity,
       memo,
-      id
+      id,
     );
     entity.rest = rest;
 

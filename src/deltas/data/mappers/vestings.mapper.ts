@@ -1,46 +1,39 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Mon, 10 Jul 2023 11:06:28 GMT
+ * Last updated on: Mon, 17 Jul 2023 08:04:38 GMT
  */
 
-import {
-  MapperImpl,
-  parseToBigInt,
-} from '@alien-worlds/api-core';
-import { MongoDB } from '@alien-worlds/storage-mongodb';
+import { MapperImpl } from '@alien-worlds/api-core';
+import { MongoDB, MongoMapper } from '@alien-worlds/storage-mongodb';
 import { Asset, AssetMongoMapper, AssetRawMapper } from '@alien-worlds/eosio-contract-types';
 import { Vestings  } from "../../domain/entities";
 import { VestingsMongoModel, VestingsRawModel  } from "../dtos/vestings.dto";
 
 // Mongo Mappers
 export class VestingsMongoMapper
-  extends MapperImpl<Vestings, VestingsMongoModel>
+  extends MongoMapper<Vestings, VestingsMongoModel>
 {
   constructor() {
     super();
 
     this.mappingFromEntity.set('account', { 
       key: 'account', 
-      mapper: (value: string) => 
-        value,
+      mapper: (value: string) => value,
     });
 
     this.mappingFromEntity.set('vestingStart', { 
       key: 'vesting_start', 
-      mapper: (value: Date) => 
-        value,
+      mapper: (value: Date) => value,
     });
 
     this.mappingFromEntity.set('vestingLength', { 
       key: 'vesting_length', 
-      mapper: (value: number) => 
-        value,
+      mapper: (value: number) => value,
     });
 
     this.mappingFromEntity.set('vestingQuantity', { 
       key: 'vesting_quantity', 
-      mapper: (value: Asset) => 
-           new AssetMongoMapper().fromEntity(value)
+      mapper: (value: Asset) => new AssetMongoMapper().fromEntity(value),
     });
 
   }
@@ -51,17 +44,15 @@ export class VestingsMongoMapper
       vesting_start,
       vesting_length,
       vesting_quantity,
-      _id, 
+      _id,
       ...rest
     } = mongoModel;
 
     return Vestings.create(
-        account ?? '',
-        vesting_start ?? new Date(0),
-        vesting_length ?? 0,
-        vesting_quantity 
-          ? new AssetMongoMapper().toEntity(vesting_quantity)
-          : Asset.getDefault(),
+      account || '',
+      vesting_start || new Date(0),
+      vesting_length || 0,
+      vesting_quantity ? new AssetMongoMapper().toEntity(vesting_quantity) : Asset.getDefault(),
       _id instanceof MongoDB.ObjectId ? _id.toString() : undefined,
       rest
     );
@@ -87,12 +78,10 @@ export class VestingsRawMapper
     } = rawModel;
 
     return Vestings.create(
-        account ?? '',
-        vesting_start ?? new Date(0),
-        vesting_length ?? 0,
-        vesting_quantity 
-          ? new AssetRawMapper().toEntity(vesting_quantity)
-          : Asset.getDefault(),
+      account || '',
+      vesting_start || new Date(0),
+      vesting_length || 0,
+      vesting_quantity ? new AssetRawMapper().toEntity(vesting_quantity) : Asset.getDefault(),
       undefined,
       rest
     );

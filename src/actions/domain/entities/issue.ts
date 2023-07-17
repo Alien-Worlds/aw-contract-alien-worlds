@@ -1,6 +1,6 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Mon, 10 Jul 2023 11:06:28 GMT
+ * Last updated on: Mon, 17 Jul 2023 08:04:38 GMT
  */
 
 import { Entity, UnknownObject } from "@alien-worlds/api-core";
@@ -51,6 +51,9 @@ export class Issue implements Entity {
    *
    * @static
    * @public
+   * @param string to
+   * @param Asset quantity
+   * @param string memo
    * @returns `Issue` An instance of the `Issue` class.
    */
   public static create(
@@ -64,7 +67,7 @@ export class Issue implements Entity {
       to,
       quantity,
       memo,
-      id
+      id,
     );
     entity.rest = rest;
 

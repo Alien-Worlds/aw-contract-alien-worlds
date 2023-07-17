@@ -1,6 +1,6 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Mon, 10 Jul 2023 11:06:28 GMT
+ * Last updated on: Mon, 17 Jul 2023 08:04:38 GMT
  */
 
 import { Entity, UnknownObject } from "@alien-worlds/api-core";
@@ -54,6 +54,10 @@ export class Vestings implements Entity {
    *
    * @static
    * @public
+   * @param string account
+   * @param Date vestingStart
+   * @param number vestingLength
+   * @param Asset vestingQuantity
    * @returns `Vestings` An instance of the `Vestings` class.
    */
   public static create(
@@ -69,7 +73,7 @@ export class Vestings implements Entity {
       vestingStart,
       vestingLength,
       vestingQuantity,
-      id
+      id,
     );
     entity.rest = rest;
 

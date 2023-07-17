@@ -1,35 +1,35 @@
-import { GetTableRowsOptions, Result } from '@alien-worlds/api-core';
-import {
-  EosRpcSourceImpl,
-  EosSmartContractServiceImpl,
-} from '@alien-worlds/eos';
-
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Mon, 10 Jul 2023 11:06:28 GMT
+ * Last updated on: Mon, 17 Jul 2023 08:04:38 GMT
  */
 
-import {
+import { 
   AccountsRawModel,
   StatRawModel,
   VestingsRawModel,
 } from '../deltas/data/dtos';
+import { 
+  EosRpcSourceImpl,
+  EosSmartContractServiceImpl,
+} from '@alien-worlds/eos';
+
 import { AlienWorldsContractService } from './alien-worlds-contract.service';
+import { GetTableRowsOptions, Result } from '@alien-worlds/api-core';
 
 /**
  * A service class for interacting with the alien.worlds smart contract.
- *
+ * 
  * @class AlienWorldsContractServiceImpl
  * @extends {EosSmartContractServiceImpl}
  * @implements { AlienWorldsContractService}
- */
+*/
 export class AlienWorldsContractServiceImpl
   extends EosSmartContractServiceImpl
-  implements AlienWorldsContractService
+  implements AlienWorldsContractService 
 {
   /**
    * Creates an instance of AlienWorldsContractServiceImpl.
-   *
+   * 
    * @constructor
    * @param {EosRpcSourceImpl} eosRpcSourceImpl - The EOS RPC source to use for interactions.
    * @param {string} serviceUrl - Service Url
@@ -40,14 +40,14 @@ export class AlienWorldsContractServiceImpl
 
   /**
    * A EosSmartContractServiceImpl for the accounts table.
-   *
+   * 
    * @type {EosSmartContractServiceImpl}
-   * @param {GetTableRowsOptions} options
+   * @param {GetTableRowsOptions} options 
    */
-  public async fetchAccounts(
+  public async fetchAccounts (
     options?: GetTableRowsOptions
   ): Promise<Result<AccountsRawModel[], Error>> {
-    const table_key = '';
+    const table_key = 'balance';
     const tableRowOptions = {
       ...options,
       code: 'alien.worlds',
@@ -61,11 +61,11 @@ export class AlienWorldsContractServiceImpl
   }
   /**
    * A EosSmartContractServiceImpl for the stat table.
-   *
+   * 
    * @type {EosSmartContractServiceImpl}
-   * @param {GetTableRowsOptions} options
+   * @param {GetTableRowsOptions} options 
    */
-  public async fetchStat(
+  public async fetchStat (
     options?: GetTableRowsOptions
   ): Promise<Result<StatRawModel[], Error>> {
     const table_key = 'supply';
@@ -82,11 +82,11 @@ export class AlienWorldsContractServiceImpl
   }
   /**
    * A EosSmartContractServiceImpl for the vestings table.
-   *
+   * 
    * @type {EosSmartContractServiceImpl}
-   * @param {GetTableRowsOptions} options
+   * @param {GetTableRowsOptions} options 
    */
-  public async fetchVestings(
+  public async fetchVestings (
     options?: GetTableRowsOptions
   ): Promise<Result<VestingsRawModel[], Error>> {
     const table_key = 'account';

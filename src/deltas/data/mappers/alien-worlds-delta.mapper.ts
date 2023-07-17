@@ -1,6 +1,6 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Mon, 10 Jul 2023 11:06:28 GMT
+ * Last updated on: Mon, 17 Jul 2023 08:04:38 GMT
  */
 
 
@@ -10,7 +10,7 @@ import {
   Vestings,
 } from '../../domain/entities';
 import { ContractDelta, MapperImpl, parseToBigInt } from '@alien-worlds/api-core';
-import { MongoDB } from '@alien-worlds/storage-mongodb';
+import { MongoDB, MongoMapper } from '@alien-worlds/storage-mongodb';
 import { DataEntityType } from '../../domain/entities/alien-worlds-delta';
 import { AlienWorldsDeltaMongoModel, AlienWorldsDeltaRawModel } from '../dtos';
 import { AlienWorldsTableName } from '../../domain/enums';
@@ -20,10 +20,10 @@ import { VestingsMongoMapper, VestingsRawMapper } from "./vestings.mapper";
 
 // Mongo Mapper
 export class AlienWorldsDeltaMongoMapper
-  extends MapperImpl<ContractDelta<DataEntityType, AlienWorldsDeltaMongoModel>, AlienWorldsDeltaMongoModel>
+  extends MongoMapper<ContractDelta<DataEntityType>, AlienWorldsDeltaMongoModel>
 {
   public fromEntity(
-    entity: ContractDelta<DataEntityType, AlienWorldsDeltaMongoModel>
+    entity: ContractDelta<DataEntityType>
   ): AlienWorldsDeltaMongoModel {
     let entityData;
     switch (entity.table) {
@@ -44,8 +44,7 @@ export class AlienWorldsDeltaMongoMapper
         break;
     }
 
-    return {
-      _id: new MongoDB.ObjectId(entity.id),
+    const model: AlienWorldsDeltaMongoModel = {
       block_timestamp: entity.blockTimestamp,
       block_number: new MongoDB.Long(entity.blockNumber),
       code: entity.code,
@@ -56,11 +55,17 @@ export class AlienWorldsDeltaMongoMapper
       primary_key: new MongoDB.Long(entity.primaryKey),
       present: entity.present,
     };
+
+    if (entity.id && MongoDB.ObjectId.isValid(entity.id)) {
+      model._id =  new MongoDB.ObjectId(entity.id);
+    }
+    
+    return model;
   }
 
   public toEntity(
     mongoModel: AlienWorldsDeltaMongoModel
-  ): ContractDelta<DataEntityType, AlienWorldsDeltaMongoModel> {
+  ): ContractDelta<DataEntityType> {
     let data;
     switch (mongoModel.table) {
       case AlienWorldsTableName.Accounts:
@@ -86,7 +91,7 @@ export class AlienWorldsDeltaMongoMapper
       block_timestamp,
     } = mongoModel;
 
-    return new ContractDelta<DataEntityType, AlienWorldsDeltaMongoModel>(
+    return new ContractDelta<DataEntityType>(
       _id.toString(),
       parseToBigInt(block_number),
       code,

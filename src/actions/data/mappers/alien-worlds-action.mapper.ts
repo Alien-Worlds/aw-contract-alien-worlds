@@ -1,6 +1,6 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Mon, 10 Jul 2023 11:06:28 GMT
+ * Last updated on: Mon, 17 Jul 2023 08:04:38 GMT
  */
 
 
@@ -26,7 +26,7 @@ import { CreateMongoMapper, CreateRawMapper } from "./create.mapper";
 import { IssueMongoMapper, IssueRawMapper } from "./issue.mapper";
 import { OpenMongoMapper, OpenRawMapper } from "./open.mapper";
 import { TransferMongoMapper, TransferRawMapper } from "./transfer.mapper";
-import { MongoDB } from '@alien-worlds/storage-mongodb';
+import { MongoDB, MongoMapper } from '@alien-worlds/storage-mongodb';
 import { DataEntityType } from '../../domain/entities/alien-worlds-action';
 import { 
   AlienWorldsActionMongoModel,
@@ -50,10 +50,10 @@ import { AlienWorldsActionName } from '../../domain/enums';
 
 // Mongo Mapper
 export class AlienWorldsActionMongoMapper
-  extends MapperImpl<ContractAction<DataEntityType, AlienWorldsActionMongoModel>, AlienWorldsActionMongoModel>
+  extends MongoMapper<ContractAction<DataEntityType>, AlienWorldsActionMongoModel>
 {
   public fromEntity(
-    entity: ContractAction<DataEntityType, AlienWorldsActionMongoModel>
+    entity: ContractAction<DataEntityType>
   ): AlienWorldsActionMongoModel {
     let entityData;
     switch (entity.name) {
@@ -94,8 +94,7 @@ export class AlienWorldsActionMongoMapper
         break;
     }
 
-    return {
-      _id: new MongoDB.ObjectId(entity.id),
+    const model: AlienWorldsActionMongoModel = {
       block_timestamp: entity.blockTimestamp,
       block_number: new MongoDB.Long(entity.blockNumber),
       global_sequence: new MongoDB.Long(entity.globalSequence),
@@ -107,11 +106,17 @@ export class AlienWorldsActionMongoMapper
         data: entityData,
       },
     };
+
+    if (entity.id && MongoDB.ObjectId.isValid(entity.id)) {
+      model._id =  new MongoDB.ObjectId(entity.id);
+    }
+
+    return model;
   }
 
   public toEntity(
     mongoModel: AlienWorldsActionMongoModel
-  ): ContractAction<DataEntityType, AlienWorldsActionMongoModel> {
+  ): ContractAction<DataEntityType> {
     let data;
     switch (mongoModel.action.name) {
       case AlienWorldsActionName.Addvesting:
@@ -161,7 +166,7 @@ export class AlienWorldsActionMongoMapper
       action,
     } = mongoModel;
 
-    return new ContractAction<DataEntityType, AlienWorldsActionMongoModel>(
+    return new ContractAction<DataEntityType>(
       _id.toString(),
       block_timestamp,
       parseToBigInt(block_number),
