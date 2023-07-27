@@ -1,12 +1,12 @@
 {
-  "name": "@alien-worlds/alien-worlds-common",
+  "name": "@alien-worlds/aw-contract-alien-worlds",
   "version": "0.0.13",
   "main": "build/index.js",
   "types": "build/index.d.ts",
   "files": [
     "build"
   ],
-  "repository": "https://github.com/Alien-Worlds/alien-worlds-common.git",
+  "repository": "https://github.com/Alien-Worlds/aw-contract-alien-worlds.git",
   "author": "Ahmad Tirmazi <16874651+ahmadtirmazi@users.noreply.github.com>",
   "license": "MIT",
   "scripts": {
@@ -16,10 +16,9 @@
     "prepublish": "yarn clean && tsc --project tsconfig.build.json"
   },
   "dependencies": {
-    "@alien-worlds/api-core": "^0.0.158",
-    "@alien-worlds/eos": "^0.0.20",
-    "@alien-worlds/eosio-contract-types": "^1.0.25",
-    "@alien-worlds/storage-mongodb": "^0.0.28"
+    "@alien-worlds/aw-antelope": "^0.0.24",
+    "@alien-worlds/aw-core": "^0.0.1",
+    "@alien-worlds/aw-storage-mongodb": "^0.0.2"
   },
   "devDependencies": {
     "@types/jest": "^27.0.3",

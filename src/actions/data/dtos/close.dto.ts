@@ -1,10 +1,10 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Mon, 17 Jul 2023 08:04:38 GMT
+ * Last updated on: Thu, 27 Jul 2023 12:09:06 GMT
  */
 
-import { MongoDB } from '@alien-worlds/storage-mongodb';
-import { SymbolMongoModel, SymbolRawModel } from '@alien-worlds/eosio-contract-types';
+import { MongoDB } from '@alien-worlds/aw-storage-mongodb';
+import { SymbolMongoModel, SymbolRawModel } from '@alien-worlds/aw-antelope';
 
 /**
  * MongoDB Model(s) - Types representing data from MongoDB

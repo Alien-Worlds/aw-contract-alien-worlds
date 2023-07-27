@@ -1,6 +1,6 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Mon, 17 Jul 2023 08:04:38 GMT
+ * Last updated on: Thu, 27 Jul 2023 12:09:06 GMT
  */
 
 import { 
@@ -9,45 +9,45 @@ import {
   VestingsRawModel,
 } from '../deltas/data/dtos';
 import { 
-  EosRpcSourceImpl,
-  EosSmartContractServiceImpl,
-} from '@alien-worlds/eos';
+  AntelopeRpcSourceImpl,
+  AntelopeSmartContractServiceImpl,
+} from '@alien-worlds/aw-antelope';
 
 import { AlienWorldsContractService } from './alien-worlds-contract.service';
-import { GetTableRowsOptions, Result } from '@alien-worlds/api-core';
+import { GetTableRowsOptions, Result } from '@alien-worlds/aw-core';
 
 /**
  * A service class for interacting with the alien.worlds smart contract.
  * 
  * @class AlienWorldsContractServiceImpl
- * @extends {EosSmartContractServiceImpl}
+ * @extends {AntelopeSmartContractServiceImpl}
  * @implements { AlienWorldsContractService}
 */
 export class AlienWorldsContractServiceImpl
-  extends EosSmartContractServiceImpl
+  extends AntelopeSmartContractServiceImpl
   implements AlienWorldsContractService 
 {
   /**
    * Creates an instance of AlienWorldsContractServiceImpl.
    * 
    * @constructor
-   * @param {EosRpcSourceImpl} eosRpcSourceImpl - The EOS RPC source to use for interactions.
+   * @param {AntelopeRpcSourceImpl} antelopeRpcSourceImpl - The Antelope RPC source to use for interactions.
    * @param {string} serviceUrl - Service Url
    */
-  constructor(eosRpcSourceImpl: EosRpcSourceImpl, serviceUrl: string) {
-    super(eosRpcSourceImpl, serviceUrl, 'alien.worlds');
+  constructor(antelopeRpcSourceImpl: AntelopeRpcSourceImpl, serviceUrl: string) {
+    super(antelopeRpcSourceImpl, serviceUrl, 'alien.worlds');
   }
 
   /**
-   * A EosSmartContractServiceImpl for the accounts table.
+   * An AntelopeSmartContractServiceImpl for the accounts table.
    * 
-   * @type {EosSmartContractServiceImpl}
+   * @type {AntelopeSmartContractServiceImpl}
    * @param {GetTableRowsOptions} options 
    */
   public async fetchAccounts (
     options?: GetTableRowsOptions
   ): Promise<Result<AccountsRawModel[], Error>> {
-    const table_key = 'balance';
+    const table_key = '';
     const tableRowOptions = {
       ...options,
       code: 'alien.worlds',
@@ -60,9 +60,9 @@ export class AlienWorldsContractServiceImpl
       : await this.getAll<AccountsRawModel>(table_key, tableRowOptions);
   }
   /**
-   * A EosSmartContractServiceImpl for the stat table.
+   * An AntelopeSmartContractServiceImpl for the stat table.
    * 
-   * @type {EosSmartContractServiceImpl}
+   * @type {AntelopeSmartContractServiceImpl}
    * @param {GetTableRowsOptions} options 
    */
   public async fetchStat (
@@ -81,9 +81,9 @@ export class AlienWorldsContractServiceImpl
       : await this.getAll<StatRawModel>(table_key, tableRowOptions);
   }
   /**
-   * A EosSmartContractServiceImpl for the vestings table.
+   * An AntelopeSmartContractServiceImpl for the vestings table.
    * 
-   * @type {EosSmartContractServiceImpl}
+   * @type {AntelopeSmartContractServiceImpl}
    * @param {GetTableRowsOptions} options 
    */
   public async fetchVestings (

@@ -1,6 +1,6 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Mon, 17 Jul 2023 08:04:38 GMT
+ * Last updated on: Thu, 27 Jul 2023 12:09:06 GMT
  */
 
 
@@ -17,7 +17,7 @@ import {
   ContractAction, 
   MapperImpl, 
   parseToBigInt 
-} from '@alien-worlds/api-core';
+} from '@alien-worlds/aw-core';
 
 import { AddvestingMongoMapper, AddvestingRawMapper } from "./addvesting.mapper";
 import { BurnMongoMapper, BurnRawMapper } from "./burn.mapper";
@@ -26,7 +26,7 @@ import { CreateMongoMapper, CreateRawMapper } from "./create.mapper";
 import { IssueMongoMapper, IssueRawMapper } from "./issue.mapper";
 import { OpenMongoMapper, OpenRawMapper } from "./open.mapper";
 import { TransferMongoMapper, TransferRawMapper } from "./transfer.mapper";
-import { MongoDB, MongoMapper } from '@alien-worlds/storage-mongodb';
+import { MongoDB, MongoMapper } from '@alien-worlds/aw-storage-mongodb';
 import { DataEntityType } from '../../domain/entities/alien-worlds-action';
 import { 
   AlienWorldsActionMongoModel,

@@ -11,22 +11,40 @@
     node-fetch "2.6.6"
     reflect-metadata "^0.1.13"
 
-"@alien-worlds/eos@^0.0.20":
-  version "0.0.20"
-  resolved "https://npm.pkg.github.com/download/@alien-worlds/eos/0.0.20/46d89608b9bc9dc55fc03330f9d95bb85169a3f2#46d89608b9bc9dc55fc03330f9d95bb85169a3f2"
-  integrity sha512-n1YfAg7EyhSG/E13TQvzUIJuL15l2s/N11b+5wGSncWDr5d4lm/P7CEFeqESERgW7ZaAlA9fRPGaphTlccdzPw==
+"@alien-worlds/api-core@^0.0.160":
+  version "0.0.160"
+  resolved "https://npm.pkg.github.com/download/@alien-worlds/api-core/0.0.160/759aab5f8dda758bc930732be65066d38878843d#759aab5f8dda758bc930732be65066d38878843d"
+  integrity sha512-d7A9ZBqbKULV9K6XzOBR8fBSPZsE7Djw8jmCSM3Z9fCGQVz11BaeZSIEt/LqMhTF1nUgR3nYtYeSkExSeNaajg==
   dependencies:
-    "@alien-worlds/api-core" "^0.0.158"
+    inversify "^6.0.1"
+    node-fetch "2.6.6"
+    reflect-metadata "^0.1.13"
+
+"@alien-worlds/aw-antelope@^0.0.24":
+  version "0.0.24"
+  resolved "https://npm.pkg.github.com/download/@alien-worlds/aw-antelope/0.0.24/fff83d34195092e7aa289ce112de70ba41341296#fff83d34195092e7aa289ce112de70ba41341296"
+  integrity sha512-LbUNX25fqRqFk6VaXQUoPfQstos7MRSxOTkS33IrysPidqr7xhei1u8ROuxptbeHNYC2VNAfa9VYXDHyHmx0mQ==
+  dependencies:
+    "@alien-worlds/api-core" "^0.0.160"
+    "@alien-worlds/storage-mongodb" "^0.0.28"
     eosjs "^22.1.0"
 
-"@alien-worlds/eosio-contract-types@^1.0.25":
-  version "1.0.25"
-  resolved "https://npm.pkg.github.com/download/@alien-worlds/eosio-contract-types/1.0.25/bdd616993cc322535002b3b3f1ca2cbd70af19f7#bdd616993cc322535002b3b3f1ca2cbd70af19f7"
-  integrity sha512-mzmZJLTfhjFir3P9c1NG2AnDZ9GkVyqNVk0txg9ByaH2runIfUzdVEdJM9IygXZoJaVyEbzF41zKOsQiRUPhEw==
+"@alien-worlds/aw-core@^0.0.1":
+  version "0.0.1"
+  resolved "https://npm.pkg.github.com/download/@alien-worlds/aw-core/0.0.1/f4c39d3bb7b582860d0d06ed68a65ff55f7e1dfe#f4c39d3bb7b582860d0d06ed68a65ff55f7e1dfe"
+  integrity sha512-BfLmVMsKPymiAFQe/rG/19jAS3oVRl9ZMg7VdEcL33XXFXDc1n7Xb3J6mcalhqHOsdYOIf9plGgDFyRdjv5mMg==
   dependencies:
-    "@alien-worlds/api-core" "^0.0.158"
-    "@alien-worlds/storage-mongodb" "^0.0.28"
-    typescript "^4.9.5"
+    inversify "^6.0.1"
+    node-fetch "2.6.6"
+    reflect-metadata "^0.1.13"
+
+"@alien-worlds/aw-storage-mongodb@^0.0.2":
+  version "0.0.2"
+  resolved "https://npm.pkg.github.com/download/@alien-worlds/aw-storage-mongodb/0.0.2/244849aed48ea517fd40bfdb43a76059a01f69ba#244849aed48ea517fd40bfdb43a76059a01f69ba"
+  integrity sha512-6+zvtmDICDKTwCAX+SNiNpvNiHhTPKcebF6v6j+oKzYp81TBKJwqFC+jwRNlGd5dv/u+T9OoQL0R1OayZ+7kVg==
+  dependencies:
+    "@alien-worlds/aw-core" "^0.0.1"
+    mongodb "4.9.1"
 
 "@alien-worlds/storage-mongodb@^0.0.28":
   version "0.0.28"
@@ -3278,7 +3296,7 @@ typedarray-to-buffer@^3.1.5:
   dependencies:
     is-typedarray "^1.0.0"
 
-typescript@^4.8.2, typescript@^4.9.5:
+typescript@^4.8.2:
   version "4.9.5"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.9.5.tgz#095979f9bcc0d09da324d58d03ce8f8374cbe65a"
   integrity sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==
