@@ -2,30 +2,30 @@
 # yarn lockfile v1
 
 
-"@alien-worlds/aw-antelope@^0.0.25":
-  version "0.0.25"
-  resolved "https://npm.pkg.github.com/download/@alien-worlds/aw-antelope/0.0.25/5216d81fb42111ac80c434c7c68419e26ab77f47#5216d81fb42111ac80c434c7c68419e26ab77f47"
-  integrity sha512-qNlOOk1zMXgXkvWpse6XNS63WdibAnZsUstzffBvHnFWTlAo/NyI/EvF8ypSE9WfcwEMpPSHVDWWzAk4VIJosQ==
+"@alien-worlds/aw-antelope@^0.0.27":
+  version "0.0.27"
+  resolved "https://npm.pkg.github.com/download/@alien-worlds/aw-antelope/0.0.27/c9ece30ba119b8818b9fb1af9eeadfe62569ddfd#c9ece30ba119b8818b9fb1af9eeadfe62569ddfd"
+  integrity sha512-eMQQgCzgkWvQ87Je+sAWdS0y/HfocGnKEp5XsWwScOO1p77FSBZ1hqRQ7OPuTK2ggaz9awOpGbhXxtdhqUrxSg==
   dependencies:
-    "@alien-worlds/aw-core" "^0.0.1"
-    "@alien-worlds/aw-storage-mongodb" "^0.0.2"
+    "@alien-worlds/aw-core" "^0.0.2"
+    "@alien-worlds/aw-storage-mongodb" "^0.0.3"
     eosjs "^22.1.0"
 
-"@alien-worlds/aw-core@^0.0.1":
-  version "0.0.1"
-  resolved "https://npm.pkg.github.com/download/@alien-worlds/aw-core/0.0.1/f4c39d3bb7b582860d0d06ed68a65ff55f7e1dfe#f4c39d3bb7b582860d0d06ed68a65ff55f7e1dfe"
-  integrity sha512-BfLmVMsKPymiAFQe/rG/19jAS3oVRl9ZMg7VdEcL33XXFXDc1n7Xb3J6mcalhqHOsdYOIf9plGgDFyRdjv5mMg==
+"@alien-worlds/aw-core@^0.0.2":
+  version "0.0.2"
+  resolved "https://npm.pkg.github.com/download/@alien-worlds/aw-core/0.0.2/a0ff00b1c50a06173e99a1185af0428a24b4a3ac#a0ff00b1c50a06173e99a1185af0428a24b4a3ac"
+  integrity sha512-Ld5QrJVhtFqvmgxFYNQUlojPBp4AEw+iqPJ8xX00pFJ2shUO9wJk0cVPMP1a7KADkCYirA9AxPn45C8CXcHKjA==
   dependencies:
     inversify "^6.0.1"
     node-fetch "2.6.6"
     reflect-metadata "^0.1.13"
 
-"@alien-worlds/aw-storage-mongodb@^0.0.2":
-  version "0.0.2"
-  resolved "https://npm.pkg.github.com/download/@alien-worlds/aw-storage-mongodb/0.0.2/244849aed48ea517fd40bfdb43a76059a01f69ba#244849aed48ea517fd40bfdb43a76059a01f69ba"
-  integrity sha512-6+zvtmDICDKTwCAX+SNiNpvNiHhTPKcebF6v6j+oKzYp81TBKJwqFC+jwRNlGd5dv/u+T9OoQL0R1OayZ+7kVg==
+"@alien-worlds/aw-storage-mongodb@^0.0.3":
+  version "0.0.3"
+  resolved "https://npm.pkg.github.com/download/@alien-worlds/aw-storage-mongodb/0.0.3/6ac811b7fbd6475d8115c48413d590c2ad4e3af9#6ac811b7fbd6475d8115c48413d590c2ad4e3af9"
+  integrity sha512-rDnlOyH9FfrTHTv/0RVSmRbwGXqyXLkPfcCxwzs+70Tm46I0iCD3lpCr66ghK0Wcc5jzNJNXFP9ER4OUonKDlg==
   dependencies:
-    "@alien-worlds/aw-core" "^0.0.1"
+    "@alien-worlds/aw-core" "^0.0.2"
     mongodb "4.9.1"
 
 "@ampproject/remapping@^2.2.0":
