@@ -16,9 +16,9 @@
     "prepublish": "yarn clean && tsc --project tsconfig.build.json"
   },
   "dependencies": {
-    "@alien-worlds/aw-antelope": "^0.0.38",
-    "@alien-worlds/aw-core": "^0.0.13",
-    "@alien-worlds/aw-storage-mongodb": "^0.0.7"
+    "@alien-worlds/aw-antelope": "^0.0.40",
+    "@alien-worlds/aw-core": "^0.0.15",
+    "@alien-worlds/aw-storage-mongodb": "^0.0.10"
   },
   "devDependencies": {
     "@types/jest": "^27.0.3",
