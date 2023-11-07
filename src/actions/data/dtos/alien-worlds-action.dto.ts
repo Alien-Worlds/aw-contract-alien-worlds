@@ -34,9 +34,9 @@ export type DataRawType =
 export type AlienWorldsActionMongoModel = {
   _id?: MongoDB.ObjectId;
   block_timestamp?: Date;
-  block_number?: MongoDB.Long;
+  block_num?: MongoDB.Long;
   global_sequence?: MongoDB.Long;
-  receiver_sequence?: MongoDB.Long;
+  recv_sequence?: MongoDB.Long;
   trx_id?: string;
   action_hash?: string;
   action?: {
@@ -50,11 +50,10 @@ export type AlienWorldsActionRawModel = {
   account: string;
   name: string;
   block_timestamp: Date;
-  block_number: string;
+  block_num: string;
   global_sequence: string;
   recv_sequence: string;
   transaction_id: string;
   data: DataRawType;
   [key: string]: unknown;
 };
-

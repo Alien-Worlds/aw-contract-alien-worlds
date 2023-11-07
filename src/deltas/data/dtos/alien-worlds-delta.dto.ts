@@ -14,29 +14,25 @@ export type DataDocumentType =
   | StatMongoModel
   | VestingsMongoModel;
 
-export type DataRawType =
-  | AccountsRawModel
-  | StatRawModel
-  | VestingsRawModel;
-
+export type DataRawType = AccountsRawModel | StatRawModel | VestingsRawModel;
 
 export type AlienWorldsDeltaMongoModel = {
   _id?: MongoDB.ObjectId;
-  block_number?: MongoDB.Long;
+  block_num?: MongoDB.Long;
   code?: string;
   scope?: string;
   table?: string;
   data_hash?: string;
   data?: DataDocumentType;
   payer?: string;
-  primary_key?: MongoDB.Long,
+  primary_key?: MongoDB.Long;
   present?: boolean;
   block_timestamp?: Date;
 };
 
 export type AlienWorldsDeltaRawModel = {
   block_timestamp: Date;
-  block_number: string;
+  block_num: string;
   code: string;
   scope: string;
   table: string;

@@ -3,25 +3,25 @@
  * Last updated on: Thu, 27 Jul 2023 12:09:06 GMT
  */
 
-
-import { 
-  Accounts,
-  Stat,
-  Vestings,
-} from '../../domain/entities';
-import { ContractDelta, MapperImpl, parseToBigInt } from '@alien-worlds/aw-core';
+import { Accounts, Stat, Vestings } from '../../domain/entities';
+import {
+  ContractDelta,
+  MapperImpl,
+  parseToBigInt,
+} from '@alien-worlds/aw-core';
 import { MongoDB, MongoMapper } from '@alien-worlds/aw-storage-mongodb';
 import { DataEntityType } from '../../domain/entities/alien-worlds-delta';
 import { AlienWorldsDeltaMongoModel, AlienWorldsDeltaRawModel } from '../dtos';
 import { AlienWorldsTableName } from '../../domain/enums';
-import { AccountsMongoMapper, AccountsRawMapper } from "./accounts.mapper";
-import { StatMongoMapper, StatRawMapper } from "./stat.mapper";
-import { VestingsMongoMapper, VestingsRawMapper } from "./vestings.mapper";
+import { AccountsMongoMapper, AccountsRawMapper } from './accounts.mapper';
+import { StatMongoMapper, StatRawMapper } from './stat.mapper';
+import { VestingsMongoMapper, VestingsRawMapper } from './vestings.mapper';
 
 // Mongo Mapper
-export class AlienWorldsDeltaMongoMapper
-  extends MongoMapper<ContractDelta<DataEntityType>, AlienWorldsDeltaMongoModel>
-{
+export class AlienWorldsDeltaMongoMapper extends MongoMapper<
+  ContractDelta<DataEntityType>,
+  AlienWorldsDeltaMongoModel
+> {
   public fromEntity(
     entity: ContractDelta<DataEntityType>
   ): AlienWorldsDeltaMongoModel {
@@ -33,9 +33,7 @@ export class AlienWorldsDeltaMongoMapper
         );
         break;
       case AlienWorldsTableName.Stat:
-        entityData = new StatMongoMapper().fromEntity(
-          entity.data as Stat
-        );
+        entityData = new StatMongoMapper().fromEntity(entity.data as Stat);
         break;
       case AlienWorldsTableName.Vestings:
         entityData = new VestingsMongoMapper().fromEntity(
@@ -46,7 +44,7 @@ export class AlienWorldsDeltaMongoMapper
 
     const model: AlienWorldsDeltaMongoModel = {
       block_timestamp: entity.blockTimestamp,
-      block_number: new MongoDB.Long(entity.blockNumber),
+      block_num: new MongoDB.Long(entity.blockNumber),
       code: entity.code,
       scope: entity.scope,
       table: entity.table,
@@ -57,9 +55,9 @@ export class AlienWorldsDeltaMongoMapper
     };
 
     if (entity.id && MongoDB.ObjectId.isValid(entity.id)) {
-      model._id =  new MongoDB.ObjectId(entity.id);
+      model._id = new MongoDB.ObjectId(entity.id);
     }
-    
+
     return model;
   }
 
@@ -81,7 +79,7 @@ export class AlienWorldsDeltaMongoMapper
 
     const {
       _id,
-      block_number,
+      block_num,
       code,
       scope,
       table,
@@ -93,7 +91,7 @@ export class AlienWorldsDeltaMongoMapper
 
     return new ContractDelta<DataEntityType>(
       _id.toString(),
-      parseToBigInt(block_number),
+      parseToBigInt(block_num),
       code,
       scope,
       table,
@@ -108,8 +106,8 @@ export class AlienWorldsDeltaMongoMapper
 
 // Processor Task Mapper
 export class AlienWorldsDeltaProcessorTaskMapper extends MapperImpl<
-  ContractDelta<DataEntityType, AlienWorldsDeltaRawModel>, 
-    AlienWorldsDeltaRawModel
+  ContractDelta<DataEntityType, AlienWorldsDeltaRawModel>,
+  AlienWorldsDeltaRawModel
 > {
   public fromEntity(
     entity: ContractDelta<DataEntityType, AlienWorldsDeltaRawModel>
@@ -134,7 +132,7 @@ export class AlienWorldsDeltaProcessorTaskMapper extends MapperImpl<
     }
 
     const {
-      block_number,
+      block_num,
       code,
       scope,
       table,
@@ -146,7 +144,7 @@ export class AlienWorldsDeltaProcessorTaskMapper extends MapperImpl<
 
     return new ContractDelta<DataEntityType, AlienWorldsDeltaRawModel>(
       '',
-      parseToBigInt(block_number),
+      parseToBigInt(block_num),
       code,
       scope,
       table,
@@ -154,7 +152,7 @@ export class AlienWorldsDeltaProcessorTaskMapper extends MapperImpl<
       payer,
       parseToBigInt(primary_key),
       present,
-      block_timestamp,
+      block_timestamp
     );
   }
 }
