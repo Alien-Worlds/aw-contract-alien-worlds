@@ -132,7 +132,7 @@ export class AlienWorldsDeltaProcessorTaskMapper extends MapperImpl<
     }
 
     const {
-      block_num,
+      block_number,
       code,
       scope,
       table,
@@ -144,7 +144,7 @@ export class AlienWorldsDeltaProcessorTaskMapper extends MapperImpl<
 
     return new ContractDelta<DataEntityType, AlienWorldsDeltaRawModel>(
       '',
-      parseToBigInt(block_num),
+      parseToBigInt(block_number),
       code,
       scope,
       table,

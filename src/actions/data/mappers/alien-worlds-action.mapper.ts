@@ -220,7 +220,7 @@ export class AlienWorldsActionProcessorTaskMapper extends MapperImpl<
       account,
       name,
       block_timestamp,
-      block_num,
+      block_number,
       global_sequence,
       recv_sequence,
       transaction_id,
@@ -229,7 +229,7 @@ export class AlienWorldsActionProcessorTaskMapper extends MapperImpl<
     return new ContractAction<DataEntityType, AlienWorldsActionRawModel>(
       '',
       block_timestamp,
-      parseToBigInt(block_num),
+      parseToBigInt(block_number),
       account,
       name,
       parseToBigInt(global_sequence),

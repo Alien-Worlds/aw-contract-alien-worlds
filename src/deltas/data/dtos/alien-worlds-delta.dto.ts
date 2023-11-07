@@ -32,7 +32,7 @@ export type AlienWorldsDeltaMongoModel = {
 
 export type AlienWorldsDeltaRawModel = {
   block_timestamp: Date;
-  block_num: string;
+  block_number: string;
   code: string;
   scope: string;
   table: string;
