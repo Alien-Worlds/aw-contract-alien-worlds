@@ -3,7 +3,8 @@
  * Last updated on: Thu, 27 Jul 2023 12:09:06 GMT
  */
 
-import {
+
+import { 
   Addvesting,
   Burn,
   Close,
@@ -12,25 +13,22 @@ import {
   Open,
   Transfer,
 } from '../../domain/entities';
-import {
-  ContractAction,
-  MapperImpl,
-  parseToBigInt,
+import { 
+  ContractAction, 
+  MapperImpl, 
+  parseToBigInt 
 } from '@alien-worlds/aw-core';
 
-import {
-  AddvestingMongoMapper,
-  AddvestingRawMapper,
-} from './addvesting.mapper';
-import { BurnMongoMapper, BurnRawMapper } from './burn.mapper';
-import { CloseMongoMapper, CloseRawMapper } from './close.mapper';
-import { CreateMongoMapper, CreateRawMapper } from './create.mapper';
-import { IssueMongoMapper, IssueRawMapper } from './issue.mapper';
-import { OpenMongoMapper, OpenRawMapper } from './open.mapper';
-import { TransferMongoMapper, TransferRawMapper } from './transfer.mapper';
+import { AddvestingMongoMapper, AddvestingRawMapper } from "./addvesting.mapper";
+import { BurnMongoMapper, BurnRawMapper } from "./burn.mapper";
+import { CloseMongoMapper, CloseRawMapper } from "./close.mapper";
+import { CreateMongoMapper, CreateRawMapper } from "./create.mapper";
+import { IssueMongoMapper, IssueRawMapper } from "./issue.mapper";
+import { OpenMongoMapper, OpenRawMapper } from "./open.mapper";
+import { TransferMongoMapper, TransferRawMapper } from "./transfer.mapper";
 import { MongoDB, MongoMapper } from '@alien-worlds/aw-storage-mongodb';
 import { DataEntityType } from '../../domain/entities/alien-worlds-action';
-import {
+import { 
   AlienWorldsActionMongoModel,
   AlienWorldsActionRawModel,
   AddvestingMongoModel,
@@ -51,10 +49,9 @@ import {
 import { AlienWorldsActionName } from '../../domain/enums';
 
 // Mongo Mapper
-export class AlienWorldsActionMongoMapper extends MongoMapper<
-  ContractAction<DataEntityType>,
-  AlienWorldsActionMongoModel
-> {
+export class AlienWorldsActionMongoMapper
+  extends MongoMapper<ContractAction<DataEntityType>, AlienWorldsActionMongoModel>
+{
   public fromEntity(
     entity: ContractAction<DataEntityType>
   ): AlienWorldsActionMongoModel {
@@ -66,19 +63,29 @@ export class AlienWorldsActionMongoMapper extends MongoMapper<
         );
         break;
       case AlienWorldsActionName.Burn:
-        entityData = new BurnMongoMapper().fromEntity(entity.data as Burn);
+        entityData = new BurnMongoMapper().fromEntity(
+          entity.data as Burn
+        );
         break;
       case AlienWorldsActionName.Close:
-        entityData = new CloseMongoMapper().fromEntity(entity.data as Close);
+        entityData = new CloseMongoMapper().fromEntity(
+          entity.data as Close
+        );
         break;
       case AlienWorldsActionName.Create:
-        entityData = new CreateMongoMapper().fromEntity(entity.data as Create);
+        entityData = new CreateMongoMapper().fromEntity(
+          entity.data as Create
+        );
         break;
       case AlienWorldsActionName.Issue:
-        entityData = new IssueMongoMapper().fromEntity(entity.data as Issue);
+        entityData = new IssueMongoMapper().fromEntity(
+          entity.data as Issue
+        );
         break;
       case AlienWorldsActionName.Open:
-        entityData = new OpenMongoMapper().fromEntity(entity.data as Open);
+        entityData = new OpenMongoMapper().fromEntity(
+          entity.data as Open
+        );
         break;
       case AlienWorldsActionName.Transfer:
         entityData = new TransferMongoMapper().fromEntity(
@@ -89,9 +96,9 @@ export class AlienWorldsActionMongoMapper extends MongoMapper<
 
     const model: AlienWorldsActionMongoModel = {
       block_timestamp: entity.blockTimestamp,
-      block_num: new MongoDB.Long(entity.blockNumber),
+      block_number: new MongoDB.Long(entity.blockNumber),
       global_sequence: new MongoDB.Long(entity.globalSequence),
-      recv_sequence: new MongoDB.Long(entity.receiverSequence),
+      receiver_sequence: new MongoDB.Long(entity.receiverSequence),
       trx_id: entity.transactionId,
       action: {
         name: entity.name,
@@ -101,7 +108,7 @@ export class AlienWorldsActionMongoMapper extends MongoMapper<
     };
 
     if (entity.id && MongoDB.ObjectId.isValid(entity.id)) {
-      model._id = new MongoDB.ObjectId(entity.id);
+      model._id =  new MongoDB.ObjectId(entity.id);
     }
 
     return model;
@@ -152,9 +159,9 @@ export class AlienWorldsActionMongoMapper extends MongoMapper<
     const {
       _id,
       block_timestamp,
-      block_num,
+      block_number,
       global_sequence,
-      recv_sequence,
+      receiver_sequence,
       trx_id,
       action,
     } = mongoModel;
@@ -162,13 +169,13 @@ export class AlienWorldsActionMongoMapper extends MongoMapper<
     return new ContractAction<DataEntityType>(
       _id.toString(),
       block_timestamp,
-      parseToBigInt(block_num),
+      parseToBigInt(block_number),
       action.account,
       action.name,
       parseToBigInt(global_sequence),
-      parseToBigInt(recv_sequence),
+      parseToBigInt(receiver_sequence),
       trx_id,
-      data
+      data,
     );
   }
 }
@@ -195,19 +202,29 @@ export class AlienWorldsActionProcessorTaskMapper extends MapperImpl<
         );
         break;
       case AlienWorldsActionName.Burn:
-        data = new BurnRawMapper().toEntity(rawModel.data as BurnRawModel);
+        data = new BurnRawMapper().toEntity(
+          rawModel.data as BurnRawModel
+        );
         break;
       case AlienWorldsActionName.Close:
-        data = new CloseRawMapper().toEntity(rawModel.data as CloseRawModel);
+        data = new CloseRawMapper().toEntity(
+          rawModel.data as CloseRawModel
+        );
         break;
       case AlienWorldsActionName.Create:
-        data = new CreateRawMapper().toEntity(rawModel.data as CreateRawModel);
+        data = new CreateRawMapper().toEntity(
+          rawModel.data as CreateRawModel
+        );
         break;
       case AlienWorldsActionName.Issue:
-        data = new IssueRawMapper().toEntity(rawModel.data as IssueRawModel);
+        data = new IssueRawMapper().toEntity(
+          rawModel.data as IssueRawModel
+        );
         break;
       case AlienWorldsActionName.Open:
-        data = new OpenRawMapper().toEntity(rawModel.data as OpenRawModel);
+        data = new OpenRawMapper().toEntity(
+          rawModel.data as OpenRawModel
+        );
         break;
       case AlienWorldsActionName.Transfer:
         data = new TransferRawMapper().toEntity(
